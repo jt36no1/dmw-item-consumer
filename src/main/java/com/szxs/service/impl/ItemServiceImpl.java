@@ -178,6 +178,32 @@ public class ItemServiceImpl implements ItemService {
         }
     }
 
+
+    //c3轮播图
+    @Override
+    public VoDmw querySlideShowPic(Integer itemTypeId) {
+        List<VoItem> voItemList = dmItemTypeFeignClient.querySlideShowPic(itemTypeId);
+        if (null != voItemList) {
+            //成功
+            return VoUtil.getDmw("true", "0000", "成功", voItemList);
+        }else {
+            //失败
+            return VoUtil.getDmw("false", "1006", "失败");
+        }
+    }
+    //c4猜你喜欢
+    @Override
+    public VoDmw queryItemLike(Integer ageGroup, Integer limit) {
+        List<VoItems> voItemList = dmItemTypeFeignClient.queryItemLike(ageGroup,limit);
+        if (null != voItemList) {
+            //成功
+            return VoUtil.getDmw("true", "0000", "成功", voItemList);
+        }else {
+            //失败
+            return VoUtil.getDmw("false", "1006", "失败");
+        }
+    }
+
     @Override
     public VoDmw queryVoItem(Integer itemTypeId, Integer limit) {
         List<VoItem> voItem =null;

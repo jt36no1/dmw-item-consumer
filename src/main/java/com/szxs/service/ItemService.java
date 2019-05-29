@@ -34,6 +34,12 @@ public interface ItemService {
     /**根据id查询剧场评论*/
     VoDmw queryItemComment(int id);
 
+    /**c3轮播图*/
+    VoDmw querySlideShowPic(Integer itemTypeId);
+
+    /**c4猜你喜欢*/
+    VoDmw queryItemLike(Integer ageGroup,Integer limit);
+
 
     /**全文检索后的内容*/
     VoDmw queryItemRows(DmElasticSearchRequestParm desr);
