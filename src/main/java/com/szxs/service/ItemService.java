@@ -1,8 +1,10 @@
 package com.szxs.service;
 
 import com.szxs.dto.VoDmw;
+import com.szxs.dto.VoFloorItems;
 import com.szxs.entity.DmElasticSearchRequestParm;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 //服务接口
 public interface ItemService {
@@ -22,17 +24,32 @@ public interface ItemService {
     /**即将开售*/
     VoDmw queryToSaleItem();
 
+    /**B6 剧场类型推荐电影（1F/2F。。。）*/
+    VoDmw queryFloorItems();
+
     /**热门排行*/
     VoDmw queryItemHot(Integer itemTypeId,Integer limit,Integer areaId);
 
     /**精彩聚集*/
-    VoDmw queryItemNice(int itemTypeId,int limit);
+    VoDmw queryItemNice(Integer itemTypeId,Integer limit);
 
     /**根据id查询剧场详情*/
-    VoDmw queryItemDetail(int id);
+    VoDmw queryItemDetail(Integer id);
 
     /**根据id查询剧场评论*/
-    VoDmw queryItemComment(int id);
+    VoDmw queryItemComment(Integer id);
+
+    //B7.	热门演出推荐排行
+    VoDmw queryHotItems(Integer itemTypeId);
+
+    //C1 音乐会专区
+    VoDmw queryItemByAge(Integer ageGroup,Integer limit);
+
+    //C2精彩聚集
+    VoDmw queryAdvertising(Integer itemTypeId,Integer limit);
+
+    //C7.根据月份查询剧场
+    VoDmw queryItemByMonth(Integer itemTypeId,Integer year, Integer month);
 
     /**c3轮播图*/
     VoDmw querySlideShowPic(Integer itemTypeId);
